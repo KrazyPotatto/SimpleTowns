@@ -1,0 +1,9 @@
+name: SimpleTowns
+version: "1.0"
+main: me.kpotatto.simpletowns.SimpleTowns
+author: KrazyPotatto
+commands:
+  town:
+    description: Control your town(s)
+    aliases: t
+load: POSTWORLD

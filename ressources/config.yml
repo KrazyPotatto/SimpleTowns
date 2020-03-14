@@ -1,0 +1,53 @@
+###############################
+#         Config File         #
+#       SimpleTowns v1.0      #
+#       By KrazyPotatto       #
+#         Config  v1          #
+###############################
+#These lines are comments, explaining the what each thing do
+
+
+#The following lines are for the locales
+messages:
+  create :
+    success: "§aTown §e%name% §asuccessfully founded!"
+    exists: "§cThere is already a town with the name §e%name%"
+    duplicate: "§cYou already own a town! Cannot create a second town"
+  listTop: "§2List of towns:"
+  notauthorize: "§cYou are not authorize to do that!"
+  unknowtown: "§e%name% §cis not recognized as a town!"
+  chunk:
+    success: "§aYou successfully claim this chunk!"
+    unclaim: "§aYou unclaimed that chunk!"
+    already: "§e%name%§c owns this chunk!"
+    notowning: "§cAborting... You don't own a town!"
+  owner:
+    own: "§aYou own the town named: §e%name%§a!"
+    not: "§cYou don't own any town!"
+  invite:
+    success: "§aPlayer §e%name% §ahas been successfully invited"
+    notonline: "§cThis player is not online!"
+    received: "§e%name% §6invited you to join the town §e%town%"
+    joined: "§aSuccessfully joined town §e%town%§a!"
+  teleport:
+    set: "§aSuccessfully set §e%town%§a's spawn"
+    success: "§aYou have been teleported to §e%town%§a's spawn"
+  promote:
+    demote: "You demoted %name% to member in you town"
+    notmember: "This player is not member of your town"
+    success: "§aYou promoted §e%name% §ato admin in you town"
+  kick: "§aYou kicked §e%name% §afrom your town!"
+  help:
+    - "§cThis command require multiple arguments!"
+    - "§cSupported arguments:"
+    - "create [town]"
+    - "settp"
+    - "tp [town]"
+    - "invite [town] [player]"
+    - "join [town]"
+    - "list"
+    - "claim (your town if you own one, else won't work)"
+    - "claim [town]"
+    - "unclaim"
+    - "promote [player]"
+    - "demote [player]"
