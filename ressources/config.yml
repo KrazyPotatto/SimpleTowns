@@ -34,7 +34,7 @@ messages:
     success: "§aYou have been teleported to §e%town%§a's spawn"
   promote:
     demote: "You demoted %name% to member in you town"
-    notmember: "This player is not member of your town"
+    notmember: "§aThis player is not member of your town"
     success: "§aYou promoted §e%name% §ato admin in you town"
   kick: "§aYou kicked §e%name% §afrom your town!"
   help:
