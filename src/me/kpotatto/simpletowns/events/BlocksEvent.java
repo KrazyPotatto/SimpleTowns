@@ -16,9 +16,11 @@ import java.util.Optional;
 public class BlocksEvent implements Listener {
 
     SimpleTowns pl;
+    String cannot;
 
     public BlocksEvent(SimpleTowns pl) {
         this.pl = pl;
+        this.cannot = pl.config.getString("messages.cannotbuild");
     }
 
     @EventHandler
@@ -30,7 +32,7 @@ public class BlocksEvent implements Listener {
             Town t = pl.towns.get(claim.getTown_name());
             if(t.getMembers().stream().noneMatch(uuid -> uuid.toString().equals(e.getPlayer().getUniqueId().toString()))){
                 e.setCancelled(true);
-                e.getPlayer().sendMessage("You are not authorized to build here");
+                e.getPlayer().sendMessage(this.cannot);
             }
         }
     }
@@ -44,13 +46,13 @@ public class BlocksEvent implements Listener {
             Town t = pl.towns.get(claim.getTown_name());
             if(t.getMembers().stream().noneMatch(uuid -> uuid.toString().equals(e.getPlayer().getUniqueId().toString()))){
                 e.setCancelled(true);
-                e.getPlayer().sendMessage("You are not authorized to build here");
+                e.getPlayer().sendMessage(this.cannot);
             }
         }
     }
 
     @EventHandler
-    public void onBlockExplose(EntityExplodeEvent e){
+    public void onBlockExplode(EntityExplodeEvent e){
         for(Block b: e.blockList()){
             if(pl.claims.stream().anyMatch(cl -> { return cl.getWorld_name().equals(b.getWorld().getName()) &&
                     cl.getChunkX() == b.getChunk().getX() && cl.getChunkZ() == b.getChunk().getZ(); })){

@@ -40,16 +40,6 @@ public class TownCommand implements CommandExecutor, TabCompleter {
             }
             return false;
         }
-        if(args[0].equalsIgnoreCase("printclaims")){
-            if(s instanceof Player){
-                Player plll = (Player)s;
-                if(plll.isOp()) {sendHelpMessage(s); return false; }
-            }
-            Object[] cs = pl.claims.toArray();
-            String txt = pl.serializerManager.serialize(cs);
-            System.out.println(txt);
-            return false;
-        }
         if(!(s instanceof Player)){
             s.sendMessage("§cYou must be a player to execute this command!");
             return false;
@@ -417,6 +407,7 @@ public class TownCommand implements CommandExecutor, TabCompleter {
             ostr.add("promote");
             ostr.add("demote");
             ostr.add("kick");
+            ostr.add("list");
             if(!strings[0].equals("")){
                 str = new ArrayList<>();
                 for(String s5 : ostr){

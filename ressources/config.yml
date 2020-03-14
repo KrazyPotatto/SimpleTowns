@@ -9,6 +9,7 @@
 
 #The following lines are for the locales
 messages:
+  cannotbuild: "§cYou are not authorized to build here!"
   create :
     success: "§aTown §e%name% §asuccessfully founded!"
     exists: "§cThere is already a town with the name §e%name%"
