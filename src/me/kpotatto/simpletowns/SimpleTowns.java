@@ -2,6 +2,7 @@ package me.kpotatto.simpletowns;
 
 import me.kpotatto.simpletowns.commands.TownCommand;
 import me.kpotatto.simpletowns.events.BlocksEvent;
+import me.kpotatto.simpletowns.events.InteractEvent;
 import me.kpotatto.simpletowns.gson.SerializerManager;
 import me.kpotatto.simpletowns.towns.Claim;
 import me.kpotatto.simpletowns.towns.Town;
@@ -40,6 +41,7 @@ public class SimpleTowns extends JavaPlugin {
         getCommand("town").setExecutor(new TownCommand(this));
 
         getServer().getPluginManager().registerEvents(new BlocksEvent(this), this);
+        getServer().getPluginManager().registerEvents(new InteractEvent(this), this);
         config = getConfig();
         instance = this;
         System.out.println(townsPath.listFiles());
