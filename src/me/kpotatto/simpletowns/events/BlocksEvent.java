@@ -16,11 +16,9 @@ import java.util.Optional;
 public class BlocksEvent implements Listener {
 
     SimpleTowns pl;
-    String cannot;
 
     public BlocksEvent(SimpleTowns pl) {
         this.pl = pl;
-        this.cannot = pl.config.getString("messages.cannotbuild");
     }
 
     @EventHandler
@@ -32,7 +30,7 @@ public class BlocksEvent implements Listener {
             Town t = pl.towns.get(claim.getTown_name());
             if(t.getMembers().stream().noneMatch(uuid -> uuid.toString().equals(e.getPlayer().getUniqueId().toString()))){
                 e.setCancelled(true);
-                e.getPlayer().sendMessage(this.cannot);
+                e.getPlayer().sendMessage(pl.config.getString("messages.cannotbuild"));
             }
         }
     }
@@ -46,7 +44,7 @@ public class BlocksEvent implements Listener {
             Town t = pl.towns.get(claim.getTown_name());
             if(t.getMembers().stream().noneMatch(uuid -> uuid.toString().equals(e.getPlayer().getUniqueId().toString()))){
                 e.setCancelled(true);
-                e.getPlayer().sendMessage(this.cannot);
+                e.getPlayer().sendMessage(pl.config.getString("messages.cannotbuild"));
             }
         }
     }
