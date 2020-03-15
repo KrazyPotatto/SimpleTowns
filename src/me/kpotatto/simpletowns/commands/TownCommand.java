@@ -66,7 +66,7 @@ public class TownCommand implements CommandExecutor, TabCompleter {
             File save = new File(pl.townsPath, townName+".json");
             String json = pl.serializerManager.serialize(town);
             pl.serializerManager.saveToFile(save, json);
-            s.sendMessage(pl.config.getString("messages.create.success"));
+            s.sendMessage(pl.config.getString("messages.create.success").replaceAll("%name%", town.getName()));
             return true;
         }
         if (args[0].equalsIgnoreCase("claim")) {
