@@ -23,6 +23,7 @@ public class BlocksEvent implements Listener {
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e){
+        if(pl.ignoreClaims.contains(e.getPlayer())) return;
         if(pl.claims.stream().anyMatch(cl -> { return cl.getWorld_name().equals(e.getBlock().getWorld().getName()) &&
         cl.getChunkX() == e.getBlock().getChunk().getX() && cl.getChunkZ() == e.getBlock().getChunk().getZ(); })){
             Claim claim = pl.claims.stream().filter(cl -> { return cl.getWorld_name().equals(e.getBlock().getWorld().getName()) &&
@@ -37,6 +38,7 @@ public class BlocksEvent implements Listener {
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent e){
+        if(pl.ignoreClaims.contains(e.getPlayer())) return;
         if(pl.claims.stream().anyMatch(cl -> { return cl.getWorld_name().equals(e.getBlock().getWorld().getName()) &&
                 cl.getChunkX() == e.getBlock().getChunk().getX() && cl.getChunkZ() == e.getBlock().getChunk().getZ(); })){
             Claim claim = pl.claims.stream().filter(cl -> { return cl.getWorld_name().equals(e.getBlock().getWorld().getName()) &&

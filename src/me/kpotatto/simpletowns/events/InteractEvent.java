@@ -18,8 +18,16 @@ public class InteractEvent implements Listener {
 
     @EventHandler
     public void onInterract(PlayerInteractEvent e){
+        if(pl.ignoreClaims.contains(e.getPlayer())) return;
         if(e.getClickedBlock() != null){
-            if(e.getClickedBlock().getType().name().contains("CHEST") || e.getClickedBlock().getType().name().contains("DOOR") || e.getClickedBlock().getType().name().contains("GATE")){
+            if(e.getClickedBlock().getType().name().contains("CHEST") ||
+                    e.getClickedBlock().getType().name().contains("DOOR") ||
+                    e.getClickedBlock().getType().name().contains("GATE") ||
+                    e.getClickedBlock().getType().name().contains("BUTTON") ||
+                    e.getClickedBlock().getType().name().contains("LEVER") ||
+                    e.getClickedBlock().getType().name().contains("FURNACE") ||
+                    e.getClickedBlock().getType().name().contains("HOPPER") ||
+                    e.getClickedBlock().getType().name().contains("AIR")){
                 if(pl.claims.stream().anyMatch(cl -> { return cl.getWorld_name().equals(e.getClickedBlock().getWorld().getName()) &&
                         cl.getChunkX() == e.getClickedBlock().getChunk().getX() && cl.getChunkZ() == e.getClickedBlock().getChunk().getZ(); })){
                     Claim claim = pl.claims.stream().filter(cl -> { return cl.getWorld_name().equals(e.getClickedBlock().getWorld().getName()) &&

@@ -39,6 +39,9 @@ messages:
     notmember: "§aThis player is not member of your town"
     success: "§aYou promoted §e%name% §ato admin in you town"
   kick: "§aYou kicked §e%name% §afrom your town!"
+  ignoreclaims:
+    on: "§aSuccessfully toggled on Ignore Claims mode"
+    off: "§aSuccessfully toggled off Ignore Claims mode"
   help:
     - "§cThis command require multiple arguments!"
     - "§cSupported arguments:"

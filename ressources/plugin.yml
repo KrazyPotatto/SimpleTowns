@@ -6,4 +6,10 @@ commands:
   town:
     description: Control your town(s)
     aliases: t
+  ignoreclaims:
+    description: Allow admin to ignore claim protection
+    aliases: ic
+  townadmin:
+    description: Control other people town
+    aliases: ta
 load: POSTWORLD

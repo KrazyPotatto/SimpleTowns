@@ -1,17 +1,18 @@
 package me.kpotatto.simpletowns;
 
+import me.kpotatto.simpletowns.commands.IgnoreClaimsCommand;
+import me.kpotatto.simpletowns.commands.TownAdminCommand;
 import me.kpotatto.simpletowns.commands.TownCommand;
 import me.kpotatto.simpletowns.events.BlocksEvent;
 import me.kpotatto.simpletowns.events.InteractEvent;
 import me.kpotatto.simpletowns.gson.SerializerManager;
 import me.kpotatto.simpletowns.towns.Claim;
 import me.kpotatto.simpletowns.towns.Town;
-import org.bukkit.Chunk;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.*;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +24,7 @@ public class SimpleTowns extends JavaPlugin {
     private static SimpleTowns instance;
     public FileConfiguration config;
     public File townsPath = new File(getDataFolder(), "\\towns\\");
+    public ArrayList<Player> ignoreClaims = new ArrayList<>();
 
     public Map<String, Town> towns = new HashMap<>();
     public List<Claim> claims = new ArrayList<>();
@@ -39,6 +41,8 @@ public class SimpleTowns extends JavaPlugin {
         saveConfig();
 
         getCommand("town").setExecutor(new TownCommand(this));
+        getCommand("townadmin").setExecutor(new TownAdminCommand());
+        getCommand("ignoreclaims").setExecutor(new IgnoreClaimsCommand(this));
 
         getServer().getPluginManager().registerEvents(new BlocksEvent(this), this);
         getServer().getPluginManager().registerEvents(new InteractEvent(this), this);
