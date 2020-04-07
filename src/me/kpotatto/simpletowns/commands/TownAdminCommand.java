@@ -21,7 +21,7 @@ public class TownAdminCommand implements CommandExecutor, TabCompleter {
         if(args[0].equalsIgnoreCase("kick") && (args.length == 3) && s.hasPermission("simpletowns.admin")){
             Kick.execute(s,args);
         }
-        if(args[0].equalsIgnoreCase("unclaim") && s.hasPermission("simpletowns.unclaim") && (s instanceof Player)){
+        if(args[0].equalsIgnoreCase("unclaim") && s.hasPermission("simpletowns.admin") && (s instanceof Player)){
             Unclaim.execute((Player)s);
         }
         return false;
